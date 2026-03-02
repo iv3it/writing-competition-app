@@ -83,10 +83,28 @@ export default function Game() {
         const elapsedSeconds = 30 - timeLeft;
         const minutes = elapsedSeconds / 60;
 
-        const words = value.trim().split(" ").filter(Boolean);
-        const wpm = minutes > 0 ? words.length / minutes : 0;
+        const sentenceWords = sentence.trim().split(" ");
+        const typedWords = value.trim().split(" ");
 
-        const correctChars = value.split("").filter((char, i) => char === sentence[i]).length;
+        // counting only full correct words
+        let correctWordCount = 0;
+
+        for (let i = 0; i < typedWords.length && i < sentenceWords.length; i++) {
+            if (typedWords[i] === sentenceWords[i]) {
+                correctWordCount++;
+            }
+        }
+
+        const wpm = minutes > 0 ? correctWordCount / minutes : 0;
+
+        /// accuracy
+        let correctChars = 0;
+
+        for (let i = 0; i < value.length && i < sentence.length; i++) {
+            if (value[i] === sentence[i]) {
+                correctChars++;
+            }
+        }
 
         const accuracy = sentence.length > 0 ? correctChars / sentence.length : 1;
 
