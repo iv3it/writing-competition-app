@@ -1,3 +1,5 @@
+For this task I've chosen to use Tailwind and Shadcn/ui library for UI, and Socket.io to provide multiplayer game. I was also planning to use lowdb and tanstack table (for leaderboard and sorting), but I haven't finished it because of deadline.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
